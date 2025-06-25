@@ -1,0 +1,23 @@
+[
+  {
+    "nombre": "Cardiología - Primera vez",
+    "condiciones": {
+      "especialidad": "cardiología",
+      "tipo_cita": "primera vez",
+      "centro_medico": "Centro A"
+    },
+    "accion": {
+      "dias_antes": 2
+    }
+  },
+  {
+    "nombre": "Excluir doctora Gómez",
+    "condiciones": {
+      "profesional.rut": "15678432-9",
+      "centro_medico": "Centro A"
+    },
+    "accion": {
+      "excluir": true
+    }
+  }
+]

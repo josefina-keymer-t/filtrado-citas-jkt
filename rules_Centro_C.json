@@ -1,0 +1,29 @@
+[
+  {
+    "nombre": "Pediatría - Controles - Solo niños",
+    "condiciones": {
+      "especialidad": "pediatría",
+      "tipo_cita": "control",
+      "estado": "agendada",
+      "centro_medico": "Centro C"
+    },
+    "accion": {
+      "edad_menor": 15,
+      "dias_antes": 1
+    }
+  },
+  {
+    "nombre": "Fin de semana - triple contacto",
+    "condiciones": {
+      "fin_de_semana": true,
+      "centro_medico": "Centro C"
+    },
+    "accion": {
+      "contactos_multiple": [
+        5,
+        2,
+        0
+      ]
+    }
+  }
+]

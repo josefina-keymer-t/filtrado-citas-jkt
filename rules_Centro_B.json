@@ -1,0 +1,26 @@
+[
+  {
+    "nombre": "Dr. Martínez - Sin tercera edad",
+    "condiciones": {
+      "profesional.nombre": "Martínez",
+      "centro_medico": "Centro B"
+    },
+    "accion": {
+      "dias_antes": 1,
+      "excluir_edad_mayor": 65
+    }
+  },
+  {
+    "nombre": "Cardiología - Doble contacto",
+    "condiciones": {
+      "especialidad": "cardiología",
+      "centro_medico": "Centro B"
+    },
+    "accion": {
+      "contactos_multiple": [
+        5,
+        0
+      ]
+    }
+  }
+]
