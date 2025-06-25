@@ -58,7 +58,7 @@ MVE: Desarrollar soluciones **funcionales**, que pueden ser no las más desarrol
 
 ## 3. Diseño conceptual del MVE
 
-Se construyó un **script funcional y extensible** con las siguientes características:
+Se construyó un **script funcional y adaptable** con las siguientes características:
 
 - El sistema carga las citas desde un archivo JSON común (`bbdd.json`).
 - Aplica filtros distintos por centro médico, según archivos separados de reglas.
