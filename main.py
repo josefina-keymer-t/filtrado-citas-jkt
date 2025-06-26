@@ -1,6 +1,7 @@
 import datetime
 import json
 import os
+import glob
 
 # Obtener la fecha actual automáticamente
 hoy = datetime.date.today()
@@ -74,14 +75,22 @@ def filtrar_citas_por_reglas(citas, reglas, fecha_actual):
 # Filtrar citas agrupadas por centro médico usando sus reglas respectivas
 resultados_por_centro = {}
 
-for centro in ["Centro A", "Centro B", "Centro C"]:
-    archivo_reglas = f"rules_{centro.replace(' ', '_')}.json"
-    if os.path.exists(archivo_reglas):
-        with open(archivo_reglas, "r", encoding="utf-8") as f:
-            reglas = json.load(f)
-        citas_centro = [c for c in citas if c["centro_medico"] == centro]
-        resultado = filtrar_citas_por_reglas(citas_centro, reglas, hoy)
-        resultados_por_centro[centro] = resultado
+# Encontt rule files (e.g., "rules_Centro_A.json", "rules_Hospital_X.json")
+rule_files = glob.glob("rules_*.json")  
+
+for rule_file in rule_files:
+    centro = rule_file.replace("rules_", "").replace(".json", "").replace("_", " ")
+    with open(rule_file, "r", encoding="utf-8") as f:
+        reglas = json.load(f)
+    citas_centro = [c for c in citas if c["centro_medico"] == centro]
+    resultados_por_centro[centro] = filtrar_citas_por_reglas(citas_centro, reglas, hoy)
+#Validar
+centros_validos = {c["centro_medico"] for c in citas}  
+for rule_file in glob.glob("rules_*.json"):
+    centro = rule_file.replace("rules_", "").replace(".json", "").replace("_", " ")
+    if centro not in centros_validos:
+        continue  # Omitir archivos no válidos
+    
 
 # Imprimir resultados
 print("Citas que deben ser notificadas hoy por centro:")
